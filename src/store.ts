@@ -4,14 +4,14 @@ type PasswordState = {
     length: number;
     includeNumbers: boolean;
     includeSymbols: boolean;
-    includeUpperCase: boolean;
-    includeLowerCase: boolean;
+    includeUppercase: boolean;
+    includeLowercase: boolean;
     generatedPassword: string;
     setLength: (length: number) => void;
     toggleNumbers: () => void;
     toggleSymbols: () => void;
     toggleUppercase: () => void;
-    toggleLowerCase: () => void;
+    toggleLowercase: () => void;
     generatePassword: () => void;
 }
 
@@ -19,15 +19,15 @@ const usePasswordStore = create<PasswordState>((set) => ({
     length: 12,
     includeNumbers: true,
     includeSymbols: false,
-    includeUpperCase: true,
-    includeLowerCase: true,
+    includeUppercase: true,
+    includeLowercase: true,
     generatedPassword: '',
 
     setLength: (length) => set({length}),
     toggleNumbers: () => set((state) => ({includeNumbers: !state.includeNumbers})),
     toggleSymbols: () => set((state) => ({includeSymbols: !state.includeSymbols})),
-    toggleUppercase: () => set((state) => ({includeUpperCase: !state.includeUpperCase})),
-    toggleLowerCase: () => set((state) => ({includeLowerCase: !state.includeLowerCase})),
+    toggleUppercase: () => set((state) => ({includeUppercase: !state.includeUppercase})),
+    toggleLowercase: () => set((state) => ({includeLowercase: !state.includeLowercase})),
 
     generatePassword: () => set((state) => {
         const numbers = '0123456789';
@@ -39,8 +39,8 @@ const usePasswordStore = create<PasswordState>((set) => ({
 
         if(state.includeNumbers) characters += numbers
         if(state.includeSymbols) characters += symbols
-        if(state.includeUpperCase) characters += uppercase
-        if(state.includeLowerCase) characters += lowercase
+        if(state.includeUppercase) characters += uppercase
+        if(state.includeLowercase) characters += lowercase
 
         let password = ''
         
